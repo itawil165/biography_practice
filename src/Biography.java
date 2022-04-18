@@ -1,37 +1,73 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Biography {
     public static void main(String[] args) {
 
-        /**
-         * WORK ON BOOK AND AUTHOR CLASSES FIRST
-        This will be our actual program that we define author and his books
-        In this program we will write the biography of Stefan Zweig, an Austrian novelist.
+        Scanner userInput = new Scanner(System.in);
+
+        // Create collection for Author Info
+        ArrayList<Author> author = new ArrayList<>();
+
+        // Gather Author Information
+        System.out.println(Author.askAuthorFName);
+        String firstName = userInput.nextLine();
+
+        System.out.println(Author.askAuthorLName);
+        String lastName = userInput.nextLine();
+
+        System.out.println(Author.askAuthorCountry);
+        String country = userInput.nextLine();
+
+        System.out.println(Author.askIfAlive);
+        String isAlive = userInput.nextLine();
+
+        String age = "N/A";
+        boolean isAliveBool = false;
 
 
-         Write a program that will get information from user and
-         -Print information for the favorite author
-         -Print information of the books of favorite author
+        if (isAlive.toLowerCase().startsWith("y")) {
+            isAliveBool = true;
+            System.out.println(Author.askAuthorAge);
+            age = String.valueOf(userInput.nextInt());
+        }
 
-        Full name = Stefan Zweig
-        County = Austria
-        Is still alive: No (28 November 1881 – 22 February 1942)
-        Some of his books as listed below:
+        // Update Author Info
+        Author authorInfo = new Author(firstName, lastName, country, isAliveBool, age);
 
-        BookName                            Genre           TotalPage
-        Amok                                tale            189
-        The Royal Game                      novella         53
-        24 Hours in the Life of a Woman     novella         80
-         */
 
-        /*
-        Expected result:
-        Author's information = Author{firstName='Stefan', lastName='Zweig', country='Austria', isAlive=false}
-        Author's books are as listed below:
-        Book{name='Amok', genre:'tale', page=189}
-        Book{name='The Royal Game', tale='novella', page=53}
-        Book{name='24 Hours in the Life of a Woman', tale='novella', page=80}
-         */
+        // Create collection for books
+        ArrayList<Book> books = new ArrayList<>();
 
-        //YOUR CODE HERE
 
+        do {
+            Book.numberOfBooks++;
+
+            // Gather Book Information
+            System.out.println(Book.askInfo);
+            String infoConfirm = userInput.nextLine();
+
+            System.out.println(Book.askBookName);
+            String name = userInput.nextLine();
+
+            System.out.println(Book.askBookGenre);
+            String genre = userInput.nextLine();
+
+            System.out.println(Book.askBookLength);
+            int totalPage = userInput.nextInt();
+
+            userInput.nextLine(); // reset input spacing
+
+            // Update book collection
+            Book book = new Book(name, genre, totalPage);
+            books.add(book);
+
+        } while (Book.numberOfBooks < 3);
+
+        System.out.println(authorInfo);
+        System.out.println(books);
+
+
+        System.out.println("\n\t//-----END PROGRAM-----//\n");
     }
 }

@@ -1,25 +1,36 @@
 public class Author {
 
-    /**
-     * WORK ON BOOK CLASS FIRST
-     Create a custom constructor that will take 6 args and defines the Author object
-     Define Author class fields as firstName, lastName, country, isAlive, age, list of books
-     */
+    // Author Constructor
+    public Author (String firstName, String lastName, String country, boolean isAliveBool, String age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.country = country;
+        this.isAliveBool = isAliveBool;
+        this.age = age;
+    }
 
-    //Create 6 args custom constructor here
-    //YOUR CODE HERE
+    // Instance Variables
+    public String firstName;
+    public String lastName;
+    public String country;
+    public boolean isAliveBool;
+    public String age;
 
+    // Author Questions
+    public static final String askAuthorFName = "What is your favorite author's first name?";
+    public static final String askAuthorLName = "What is their last name?";
+    public static final String askAuthorCountry = "Where are they from?";
+    public static final String askIfAlive = "Are they alive? Y/N";
+    public static final String askAuthorAge = "How old are they?";
 
-    /*
-        Define instance variables here
-        NOTE: Books must be defined as a List of Objects of Book class not String
-    */
-    //YOUR CODE HERE
-
-
-    /*
-    Override toString() method here that returns Author object information
-     */
-    //YOUR CODE HERE
-
+    @Override
+    public String toString() {
+        return "Author{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", country='" + country + '\'' +
+                ", isAlive='" + isAliveBool + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
